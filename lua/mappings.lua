@@ -30,3 +30,7 @@ vim.keymap.set('n', '≤', 'V<<ESC>')
 vim.keymap.set('n', '≥', 'V><ESC>')
 vim.keymap.set('v', '≤', '<gv')
 vim.keymap.set('v', '≥', '>gv')
+
+-- Go to definition
+vim.keymap.set('n', '<Leader>d', '<C-]>')
+vim.keymap.set('n', '<Leader>n', ':tnext<CR>')
