@@ -9,6 +9,12 @@ return {
 
     local lspconfig = require('lspconfig')
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    local capabilitiesCompletion = vim.lsp.protocol.make_client_capabilities()
+    capabilitiesCompletion.textDocument.completion.completionItem.snippetSupport = true
+
+    lspconfig.html.setup {
+      capabilities = capabilitiesCompletion;
+    }
 
     lspconfig.intelephense.setup({
       capabilities = capabilities,
@@ -32,7 +38,9 @@ return {
       capabilities = capabilities,
     })
 
-    lspconfig.cssls.setup{}
+    lspconfig.cssls.setup{
+      capabilities = capabilitiesCompletion
+    }
 
     lspconfig.stylelint_lsp.setup{
       settings = {

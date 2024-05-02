@@ -1,4 +1,4 @@
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '◀', nbsp = '▒', precedes = '→', extends = '→' }
 local tabWidth = 4
