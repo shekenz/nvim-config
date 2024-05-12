@@ -1,3 +1,17 @@
+-- tsserver path configuration
+
+local function get_global_ts()
+
+  local global_ts;
+  if vim.fn.hostname() == 'shekenzmbp.fritz.box' then
+    global_ts = '/usr/local/lib/node_modules/typescript/lib'
+  else
+    global_ts = os.getenv('HOME') .. '/.local/npm/lib/node_modules/typescript/lib'
+  end
+
+  return global_ts
+end
+
 return {
   'neovim/nvim-lspconfig',
 
@@ -24,8 +38,7 @@ return {
       capabilities = capabilities,
       init_options = {
         typescript = {
-          -- Using global typescript server. Check lspconfig Volar doc for local server.
-          tsdk = os.getenv('HOME') .. '/.local/npm/lib/node_modules/typescript/lib',
+          tsdk = get_global_ts(),
         }
       },
       filetypes = {
