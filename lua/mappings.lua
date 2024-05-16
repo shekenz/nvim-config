@@ -34,3 +34,6 @@ vim.keymap.set('v', '≥', '>gv')
 -- Go to definition
 vim.keymap.set('n', '<Leader>d', '<C-]>')
 vim.keymap.set('n', '<Leader>n', ':tnext<CR>')
+
+-- Close buffer gracefully
+vim.keymap.set('', '<C-c>', ':bp <bar> bd #<CR>')
