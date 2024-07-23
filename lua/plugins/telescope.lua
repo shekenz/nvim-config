@@ -24,6 +24,20 @@ return {
         },
       },
     }, ]]
+    --[[ defaults = {
+      vimgrep_arguments = {
+        -- all required except `--smart-case`
+        'rg',
+        '--color=never',
+        '--no-heading',
+        '--with-filename',
+        '--line-number',
+        '--column',
+        '--smart-case',
+        -- add your options
+        -- '--glob="!sql/"',
+      },
+    }, ]]
   },
   config = function(_, opts)
     require('telescope').load_extension('fzf')
@@ -36,7 +50,9 @@ return {
     return {
       { '<leader>,', builtin.find_files },
       { '<leader>;', builtin.live_grep },
-      { '<leader>r', extensions.recent_files.pick },
+      { '<leader>n', extensions.recent_files.pick },
+      -- { '<leader>b', builtin.buffers },
+      { '<leader>b', ':Telescope buffers initial_mode=normal<CR>' },
     }
   end,
 }

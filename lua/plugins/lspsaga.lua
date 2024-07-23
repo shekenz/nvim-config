@@ -3,14 +3,16 @@ return {
 
   config = function()
     require('lspsaga').setup({
-      light_bulb = {
+      lightbulb = {
         enable = false,
       }
     })
   end,
 
+  event = "LspAttach",
+
   dependencies = {
-    'nvim-tree/nvim-web-devicons'     -- optional
+    'nvim-tree/nvim-web-devicons' -- optional
   },
 
   keys = {
