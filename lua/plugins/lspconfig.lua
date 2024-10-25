@@ -52,20 +52,40 @@ return {
     })
 
     lspconfig.cssls.setup{
+      settings = {
+        css = {
+          validate = true,
+          lint = {
+              unknownAtRules = 'ignore',
+          }
+        },
+        scss = {
+          validate = true,
+          lint = {
+              unknownAtRules = 'ignore',
+          }
+        },
+        less = {
+          validate = true,
+          lint = {
+              unknownAtRules = 'ignore',
+          }
+        },
+      },
       capabilities = capabilitiesCompletion
     }
 
-    lspconfig.stylelint_lsp.setup{
-      settings = {
-        stylelintplus = {
-          -- see available options in stylelint-lsp documentation
-        }
-      }
-    }
+    lspconfig.stylelint_lsp.setup{}
 
     lspconfig.zls.setup({})
 
     lspconfig.tailwindcss.setup{}
+
+    require('tailwind-tools').setup({
+      document_color = {
+        inline_symbol = ' ', -- only used in inline mode
+      },
+    })
 
     vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
       -- Disable underline, it's very annoying

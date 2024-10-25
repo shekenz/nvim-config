@@ -18,3 +18,10 @@ vim.opt.colorcolumn = '120' -- Max column mark
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldenable = false
+
+-- Filetypes
+vim.filetype.add({
+  pattern = {
+    ['.*%.blade%.php'] = 'blade',
+  },
+})

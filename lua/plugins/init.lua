@@ -3,7 +3,7 @@ local plugins = {}
 
 -- Use blacklist to isolate problems with plugins
 local use_blacklist = false
-local blacklist = {'treesitter'}
+local blacklist = {'luasnip'}
 
 local function has_value (tab, val)
   for index, value in ipairs(tab) do
