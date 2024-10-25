@@ -40,10 +40,12 @@ return {
     }, ]]
   },
   config = function(_, opts)
-    require('telescope').load_extension('fzf')
-    require('telescope').load_extension('recent_files')
-    require('telescope').setup(opts)
+    local telescope = require('telescope');
+    telescope.load_extension('fzf')
+    telescope.load_extension('recent_files')
+    telescope.setup(opts)
   end,
+
   keys = function()
     local builtin = require('telescope.builtin')
     local extensions = require('telescope').extensions

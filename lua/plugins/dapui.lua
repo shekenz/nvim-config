@@ -63,9 +63,10 @@ return {
         return {
           { '<F8>', dap.toggle_breakpoint },
           { '<F9>', dap.continue },
-          { '<F10>', dap.terminate },
-          { '<F11>', dap.step_over },
-          { '<F12>', dap.step_into },
+          { '<F10>', dap.step_over },
+          { 'g<F10>', dap.step_into },
+          { '<F11>', dap.terminate },
+          { '<F12>', dap.clear_breakpoints },
         }
       end
     },

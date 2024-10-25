@@ -31,6 +31,10 @@ vim.keymap.set('n', '≥', 'V><ESC>')
 vim.keymap.set('v', '≤', '<gv')
 vim.keymap.set('v', '≥', '>gv')
 
+-- One keystroke Indent
+vim.keymap.set({'n'}, '<', 'V<<ESC>')
+vim.keymap.set({'n'}, '>', 'V><ESC>')
+
 -- Go to definition
 vim.keymap.set('n', '<Leader>d', '<C-]>')
 vim.keymap.set('n', '<Leader>n', ':tnext<CR>')
@@ -40,3 +44,17 @@ vim.keymap.set('', '<C-c>', ':bp <bar> bd #<CR>')
 
 -- Copy register 0 to register "
 vim.keymap.set('n', 'gr', ':let @"=@0<CR>')
+
+-- Telescope ignore patterns
+local telescope_ignore_patterns = {
+  '%.sql$',
+}
+
+vim.keymap.set('n', '<leader>s', function()
+  vim.g.telescope_ignore_enabled = not vim.g.telescope_ignore_enabled
+
+  require('telescope.config').set_defaults({
+    file_ignore_patterns = vim.g.telescope_ignore_enabled and telescope_ignore_patterns or {},
+  })
+end, { noremap = true, desc = 'Toggle telescope ignore patterns' })
+
